@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/rapattonimusic/allure-sandbox01#readme",
   "devDependencies": {
-    "@playwright/test": "^1.37.1"
+    "@playwright/test": "^1.37.1",
+    "allure-playwright": "^2.5.0"
   }
 }
