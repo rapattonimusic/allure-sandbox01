@@ -1,0 +1,21 @@
+{
+  "name": "allure-sandbox01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rapattonimusic/allure-sandbox01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rapattonimusic/allure-sandbox01/issues"
+  },
+  "homepage": "https://github.com/rapattonimusic/allure-sandbox01#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
+  }
+}
