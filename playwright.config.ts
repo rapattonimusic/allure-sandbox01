@@ -74,6 +74,5 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 
-  // Another test!
-  // Another test 2 !
+  // Another test
 });
