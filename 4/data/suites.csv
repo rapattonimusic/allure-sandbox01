@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Aug 23 13:28:29 GMT 2023","Wed Aug 23 13:28:30 GMT 2023","745","chromium","","","","","get started link",""
-"passed","Wed Aug 23 13:28:31 GMT 2023","Wed Aug 23 13:28:34 GMT 2023","2934","firefox","","","","","has title",""
-"passed","Wed Aug 23 13:28:27 GMT 2023","Wed Aug 23 13:28:29 GMT 2023","2061","chromium","","","","","has title",""
-"passed","Wed Aug 23 13:28:34 GMT 2023","Wed Aug 23 13:28:35 GMT 2023","1377","firefox","","","","","get started link",""
-"passed","Wed Aug 23 13:28:36 GMT 2023","Wed Aug 23 13:28:43 GMT 2023","6916","webkit","","","","","has title",""
-"passed","Wed Aug 23 13:28:43 GMT 2023","Wed Aug 23 13:28:44 GMT 2023","1440","webkit","","","","","get started link",""
