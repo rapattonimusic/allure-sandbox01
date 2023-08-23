@@ -21,13 +21,6 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=line,allure-playwright
-      
-  allure:
-    name: Generate Allure Report
-    runs-on: ubuntu-latest
-    needs: playwright
-    steps:
-      - uses: actions/checkout@v2
 
       - name: Get Allure history
         uses: actions/checkout@v2
