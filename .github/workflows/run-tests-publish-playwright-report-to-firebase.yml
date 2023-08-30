@@ -32,7 +32,8 @@ jobs:
         continue-on-error: true
         run: |
           cp -r playwright-report public
-          firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+          JOB_NUMBER=${{ github.run_number }}  # Get the GitHub job number
+          firebase deploy --only hosting --project allure-test01 --message "Deployment for Job ${JOB_NUMBER}" --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       
