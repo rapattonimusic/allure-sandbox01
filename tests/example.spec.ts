@@ -17,6 +17,6 @@ test('Another test that will pass', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
 
-test.skip('A test that will fail', async ({ page }) => {
+test('A test that will fail', async ({ page }) => {
   expect('2').toBe('1');
 })
