@@ -31,9 +31,8 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          firebase login:ci
-          cp -r playwright-report public # Copy the generated report to the public directory
-          firebase deploy --only hosting
+          cp -r playwright-report public
+          firebase deploy --only hosting --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       
