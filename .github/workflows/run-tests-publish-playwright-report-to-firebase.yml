@@ -1,0 +1,37 @@
+name: Playwright Tests to Firebase
+run-name: Test run
+on: push
+
+jobs:
+  playwright:
+    name: 'Playwright Tests'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=line,allure-playwright
+      
+      - name: Install Firebase CLI
+        if: always()
+        continue-on-error: true
+        run: npm install -g firebase-tools
+        
+      - name: Deploy to Firebase Hosting
+        run: |
+          firebase login:ci
+          cp -r playwright-report public # Copy the generated report to the public directory
+          firebase deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      
