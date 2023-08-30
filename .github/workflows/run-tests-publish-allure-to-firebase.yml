@@ -1,0 +1,46 @@
+name: Playwright Tests
+run-name: Test run
+on: push
+
+jobs:
+  playwright:
+    name: 'Playwright Tests'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=line,allure-playwright
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
+      
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+        
+      - name: Deploy to Firebase Hosting
+        run: |
+          firebase login:ci
+          cp -r allure-report public # Copy the generated report to the public directory
+          firebase deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      
